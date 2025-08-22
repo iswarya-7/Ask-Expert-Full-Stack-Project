@@ -1,0 +1,461 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16 Apr, 2025, 4:21:15 PM
+    Author     : rohini
+*/
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* variables */
+/*:root {
+    --background: #F8F9FA;
+    --button_color: #fd7e14;
+    --button_text: #fff;
+    --button_textsize: 14px;
+    --primary_color: #fd7e14;
+    --text: #212529;
+    --secondary_color: #b64900;
+    --header: linear-gradient(to right, #FF7F00, #FF4500);
+    --inputbox_shadow: 0 0 5px rgba(253, 126, 20, 0.5);
+    --search_text: #F8F9FA;
+    --transparent_background: rgba(255, 255, 255, 0.347);
+     Add a glowing effect 
+    --box_shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    --hover_color: #19191a19;
+     hover color for a tag
+}*/
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.container {
+    width: 100%;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #FF7F00, #FF4500);
+    font-family: 'poppins', sans-serif;
+    padding: 6px;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    color:#F8F9FA;
+
+}
+
+.search {
+    position: relative;
+    padding: 5px;
+    margin: 0px 10px 0px 130px;
+}
+
+.search input {
+    height: 38px;
+    width: 500px;
+    border: none;
+    border-radius: 70px;
+    background: rgba(255, 255, 255, 0.347);
+    outline: none;
+    padding-left: 30px;
+    color: #F8F9FA;
+}
+
+.search input::placeholder {
+    color: #F8F9FA;
+}
+
+/* plus icon  -add qn*/
+.plus {
+    background: #fff;
+    color: #fd7e14;
+    border: none;
+    border-radius: 50px;
+    margin-left: 50px;
+}
+
+.plus i {
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.bell {
+    margin-left: 20px;
+    background: #ffffff58;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+}
+
+.bell i {
+    font-size: 19px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.user {
+    margin-left: 20px;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    background-color: #F8F9FA;
+    color: #fd7e14;
+}
+
+.user i {
+    font-size: 19px;
+    padding: 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown_btn {
+    background: #fd7e14;
+    color: white;
+    padding: 5px 14px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+    margin-left: -20px;
+}
+
+.dropdown_content {
+    /* display: none; */
+    position: absolute;
+    /* Fixes right-side extra space issue */
+    top: 45px;
+    left: -30px;
+    background-color: white;
+    min-width: 180px;
+    /* Increased width to fit content properly */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1;
+    min-height: 0px;
+    opacity: 0;
+    transition: max-height 0.6s ease-in-out, opacity 0.5s ease-in-out;
+
+}
+
+.dropdown_content.show {
+    /* min-height: 100px; */
+    opacity: 1;
+}
+
+.dropdown_content a {
+    display: flex;
+    align-items: center;
+    /* Ensures icons & text align properly */
+    gap: 10px;
+    /* Space between icon and text */
+    padding: 8px 16px;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+/* Icon styling (if using FontAwesome or similar) */
+.dropdown_content a i {
+    font-size: 18px;
+    color: #fd7e14;
+}
+
+.dropdown:hover .dropdown_content {
+    display: block;
+}
+
+.dropdown .dropdown_content a:hover {
+    background-color: rgba(102, 99, 99, 0.123);
+}
+
+.dropdown:hover .dropdown_btn {
+    background-color: #b64900;
+}
+
+.dropdown button i {
+    cursor: pointer;
+}
+
+
+.side_bar {
+    width: 100%;
+    margin: 10px 0px;
+    background: fixed;
+
+}
+
+.side_bar li {
+    width: 100%;
+    list-style-type: none;
+    cursor: pointer;
+    padding: 15px 20px;
+    /* background: #dcd9d92f; */
+    margin-bottom: 2px;
+    border-radius: 4px;
+}
+
+
+
+.side_bar li:hover {
+    background: #fff;
+    font-weight: 500;
+
+}
+
+.side_bar li:hover a {
+    color: #212529;
+    font-weight: 600;
+
+}
+
+.side_bar li a {
+    text-decoration: none;
+    color: #212529;
+    padding-left: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.total_block {
+    /* display: flex;
+    width: 100%; */
+    font-family: 'poppins', sans-serif;
+}
+
+.answer_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px 50px 20px 340px;
+}
+
+.box,
+.answer-section {
+    border: 1px solid #cccccc48;
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.question_box {
+    /* display: none; */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    width: 98%;
+    margin-top: 30px;
+}
+
+.user_info {
+    display: flex;
+}
+
+.user_info img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.user_info p {
+    padding: 12px;
+    padding-left: 20px;
+    font-size: 13px;
+    position: relative;
+}
+
+.user_info p strong {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.user_info p strong a {
+    text-decoration: none;
+    color: black;
+}
+
+#date {
+    margin-top: px;
+}
+
+#user_ques {
+    margin: 10px;
+}
+
+#user_ques strong {
+    padding-right: 10px;
+}
+
+/* answer box */
+.answer_input {
+    /* display: none; */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px 20px 10px 20px;
+    border-radius: 8px;
+    width: 98%;
+    margin-top: 20px;
+}
+
+textarea {
+    border: 1px solid #5555554d;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+textarea::placeholder {
+    font-size: 14px;
+
+}
+
+
+textarea:focus {
+    outline: none;
+    border-color: #fd7e14;
+    color: #212529;
+    box-shadow: 0 0 5px rgba(253, 126, 20, 0.5);
+    border-radius: 8px;
+}
+
+/* .answer_input button {
+    float: right;
+    background: linear-gradient(to right, #FF7F00, #FF4500);
+    color: #fff;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 10px 0px;
+} */
+
+.ans_btn {
+    float: right;
+    background: linear-gradient(to right, #FF7F00, #FF4500);
+    color: #fff;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 10px 0px;
+    border: none;
+    border-radius: 4px;
+}
+
+.ans_btn:hover {
+    background: linear-gradient(to left, #ff8000eb, #FF4500);
+    font-weight: 530;
+}
+
+/* pending question */
+.pendingqn_sec {
+    width: 98%;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    margin-top: 40px;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+}
+
+.top p {
+    font-weight: 550;
+    font-size: 16px;
+}
+
+#cat_ans {
+    background: #fd7e14;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    color: #fff;
+    margin-left: 80px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.user_qn {
+    margin-top: 14px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.bottom p {
+    color: #212529cd;
+}
+
+.bottom button {
+    position: relative;
+    top: -3px;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+    transform: translateX(20px);
+    /* or -20px for reverse */
+    pointer-events: none;
+    height: 0;
+    overflow: hidden;
+}
+
+.show {
+    display: flex;
+    transition: 0.3s;
+}
+
+/* close icon */
+.close {
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    display: flex;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background 0.3s;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.close:hover {
+    background: #c6c7c93d;
+}

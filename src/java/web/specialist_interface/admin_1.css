@@ -1,0 +1,367 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18 Apr, 2025, 10:39:23 AM
+    Author     : rohini
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+/* varible declaration */
+/*:root {
+    --background: #F8F9FA;
+    --button_color: #fd7e14;
+    --button_text: #fff;
+    --button_textsize: 14px;
+    --primary_color: #fd7e14;
+    --text: #212529;
+    --secondary_color: #b64900;
+    --inputbox_shadow: 0 0 5px rgba(253, 126, 20, 0.5);
+     Add a glowing effect 
+}*/
+
+/* admin dashboard sidebar section */
+body {
+    font-family: 'poppins', sans-serif;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main_left {
+    width: 19%;
+    height: 100vh;
+    background:  #fd7e14;
+    color:#fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    /* Full height */
+    /*overflow-y: auto;*/
+    /* Allow scrolling within sidebar */
+}
+
+.main_left h3 {
+    padding: 10px 50px;
+    margin-bottom: 20px;
+    font-size: 27px;
+}
+
+.main_left .part {
+    display: flex;
+    flex-direction: row;
+    color: #212529;
+    padding: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    padding-left: 25px;
+}
+
+.part i {
+    width: 10px;
+    position: relative;
+    top: 3px;
+}
+
+.part h5 {
+    font-weight: 500;
+    font-size: 17px;
+    position: relative;
+    left: 25px;
+}
+
+.part a {
+    text-decoration: none;
+    color: #212529;
+    transition: 0.9s;
+}
+
+.main_left .part:hover {
+    width: 100%;
+    /* background-color:  #fff; */
+    background-color:#fff;
+    border-radius: 4px;
+}
+
+/* top right corner */
+.main_right {
+    width: 100%;
+   margin-left: 19.5%
+}
+
+/*
+
+.top_right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 25px;
+    position: sticky;
+    top: 0;
+}
+
+.top_right i {
+    color: #fd7e14;
+    background-color: #fff;
+    height: 36px;
+    width: 38px;
+    border-radius: 50%;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.top_right .profile img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50px;
+    margin-top: 8px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+ Profile dropdown 
+ Dropdown container 
+.top_right .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+ Button styling 
+.top_right .dropdown_btn {
+    background: #fd7e14;
+    color: white;
+    padding: 5px 14px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+    margin-left: -20px;
+}
+
+ Dropdown content 
+.top_right .dropdown_content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+     Fixes right-side extra space issue 
+    background-color: white;
+    min-width: 160px;
+     Increased width to fit content properly 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+ Dropdown links - Fixes row alignment 
+.top_right .dropdown_content a {
+    display: flex;
+    align-items: center;
+     Ensures icons & text align properly 
+    gap: 10px;
+     Space between icon and text 
+    padding: 8px 16px;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+ Icon styling (if using FontAwesome or similar) 
+.top_right .dropdown_content a i {
+    font-size: 18px;
+    color: #fd7e14;
+}
+
+ Show dropdown on hover 
+.top_right .dropdown:hover .dropdown_content {
+    display: block;
+}
+
+.top_right .dropdown .dropdown_content a:hover {
+    background-color: rgba(102, 99, 99, 0.123);
+   
+}
+
+ Change button background on hover 
+.top_right .dropdown:hover .dropdown_btn {
+    background-color: #b64900;
+}*/
+
+/* specialist details */
+table {
+    margin: 40px auto;
+    border-collapse: collapse;
+    border-spacing: 10px;
+    /* Add spacing between table cells */
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* Optional shadow */
+}
+
+.details {
+    background-color: #F8F9FA;
+    width: calc(100% 250px);
+
+}
+
+.details th {
+    font-size: 17px;
+    text-align: center;
+}
+
+.details th,
+td {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+.accept {
+    padding: 0px;
+}
+
+.accept button {
+    margin-right: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.accept #btn1 {
+    background-color: #4BB543;
+    color: white;
+}
+
+/* Center buttons in table */
+.details td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.accept #btn1:hover {
+    opacity: 0.8;
+}
+
+
+/* admin dashboard */
+
+.overview {
+    font-family: 'poppins', sans-serif;
+    margin: 2%;
+    display: flex;
+    width: 96%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: center;
+}
+
+
+
+.overview .cards {
+    background: #F8F9FA;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    /* height: 130px; */
+    text-align: center;
+}
+
+.cards h3 {
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.cards p {
+    font-size: 25px;
+    font-weight: 600;
+
+}
+
+.cards:hover {
+    transform: translateY(-5px);
+}
+
+/* analytics */
+.analytics {
+    font-family: 'poppins', sans-serif;
+    margin-top: 30px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.analytics h3 {
+    font-size: 26px;
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+.analy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.analy .one {
+    width: 40%;
+    /* Ensures both charts take equal width */
+    min-height: 200px;
+    /* Ensures both charts have the same height */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+canvas {
+    width: 100%;
+    max-width: 300px;
+}
+
+/* previous answer qn's */
+.qnandans .qn h3 {
+    padding-left: 30px;
+}
+
+/* questions and answers */
+.main_right .qaa h3 {
+    font-size: 25px;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex .cards {
+    padding: 30px;
+}
