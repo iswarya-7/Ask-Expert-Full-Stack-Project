@@ -122,10 +122,12 @@ Open your browser and visit:
 
 
 
+```bash
 **🧑‍💻 Author**
 Iswarya A
 📧 Email: iswaryaab4@gmail.com
 🔗 GitHub Profile - https://github.com/iswarya-7
 🔗 LinkedIn Profile - https://www.linkedin.com/in/iswarya28/
+```
 
 
