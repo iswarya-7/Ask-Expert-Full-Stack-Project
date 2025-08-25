@@ -50,31 +50,38 @@ git clone https://github.com/your-username/Ask-Expert-Full-Stack-Project.git
 
 
 **Step 2 — Import Project in NetBeans**
+```bash
 Open NetBeans IDE
 Go to File → Open Project
 Select the Ask Expert project folder
-
+```
 
 **Step 3 — Setup XAMPP**
+```bash
 Start XAMPP Control Panel
 **Enable:**
 Apache → For Tomcat server
 MySQL → For database
+```
 
 
 **Step 4 — Configure Database**
+```bash
 Open phpMyAdmin → http://localhost:8080/phpmyadmin
 Create a new **database** named:
 **ask_expert**
 Import the provided ask_expert.sql file from the sql/ folder.
+```
 
 
 **Step 5 — Update Database Credentials**
 In your DBConnection.java (or wherever JDBC connection is configured), set:
 
+```bash
 String url = "jdbc:mysql://localhost:3306/ask_expert";
 String username = "root";
 String password = "";  // Default XAMPP password is empty
+```
 
 
 **Step 6 — Run the Project**
