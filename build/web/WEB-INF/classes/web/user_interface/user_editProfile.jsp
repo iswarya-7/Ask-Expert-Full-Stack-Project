@@ -1,0 +1,362 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+
+<%
+    Integer userId = (Integer) session.getAttribute("userId");
+    String fname = "", gender = "", mobile = "", email = "", profilePhoto = "", bio = "", id = "";
+    if (userId != null) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/askexpert", "root", "");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM user_registerdetails WHERE id = ?");
+            ps.setInt(1, userId);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                fname = rs.getString("full_name");
+                gender = rs.getString("gender");
+                email = rs.getString("email");
+                mobile = rs.getString("mobile");
+                profilePhoto = rs.getString("profile_photo");
+                bio = rs.getString("bio");
+                id = rs.getString("id");
+
+            }
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+%>
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User - Edit Profile Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <!-- google fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!--External style sheet-->
+    <!--<link rel="stylesheet" href="style.css">-->
+    <style>
+        body {
+            font-family: 'poppins', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        .main-content{
+            position: relative;
+            top: 80px;
+        }
+        .container {
+            width: 700px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            display: flex;
+            gap: 30px;
+        }
+        #cl{
+            margin-left: 400px;
+        }
+
+        /* Close Button */
+        .container .close {
+            color: black;
+            position: relative;
+            left: 100%;
+            top: -30px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+
+        .sidebar1 {
+            flex: 1;
+            text-align: center;
+            margin-left: -25px;
+            margin-right: 10px;
+        }
+
+        .sidebar1 img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .sidebar1 h2 {
+            font-size: 18px;
+            margin: 5px 0 5px;
+        }
+
+        .sidebar1 p {
+            color: gray;
+        }
+
+        .form-section {
+            flex: 3;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #fd7e14;
+            color: #212529;
+            box-shadow: 0 0 5px rgba(253, 126, 20, 0.5);
+            /* Add a glowing effect */
+        }
+        .form-group textarea:focus{
+            outline: none;
+            border-color: #fd7e14;
+            color: #212529;
+            box-shadow: 0 0 5px rgba(253, 126, 20, 0.5);
+        }
+        .gender-options {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 8px;
+        }
+        .gender-options input:focus{
+            box-shadow: none;
+        }
+
+        .buttons {
+            grid-column: span 2;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .save-btn {
+            background: #fd7e14;
+            color: white;
+        }
+        .save-btn:hover{
+            background:  linear-gradient(to right, #FF7F00, #FF4500);
+        }
+
+        .discard-btn {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .profile-pic-wrapper{
+            position: relative;
+            display: inline-block;
+        }
+        .profile-pic-wrapper img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .edit_icon {
+            position: absolute;
+            top: 90px;
+            right: 5px;
+            background-color: #fd7e14;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="app-container">
+        <!-- Include Header -->
+        <jsp:include page="user_nav.jsp" />
+
+        <div class="main-wrapper">
+            <!-- Include Sidebar -->
+            <jsp:include page="user_sidebar.jsp" />
+
+            <!-- Main Content -->
+            <main class="main-content" id="main-content">
+                <!-- Content will be loaded here -->
+                <div class="container" id="cl">
+                    <span class="close" onclick="closeProfileModal()">&times;</span>
+                    <div class="sidebar1">
+
+
+
+                        <div class="profile-pic-wrapper">
+                            <form  method="post" enctype="multipart/form-data" id="imageUploadForm" action="${pageContext.request.contextPath}/UpdateProfileServlet"  >
+                                <img src="<%= request.getContextPath()%>/profileimages/<%= profilePhoto%>" alt="Profile Picture"  />
+                                <!-- Pencil icon -->    
+                                <label for="profileImage" class="edit_icon">
+                                    <i class="fa-regular fa-pen-to-square" ></i>
+                                    <!-- Hidden file input -->
+
+                                    <input type="file" id="profileImage" name="profilefile" style="display: none;" onchange="document.getElementById('imageUploadForm').submit();" />
+                                </label>
+                                <!--</form>-->
+                        </div>
+                        <h2><%= fname%></h2>
+                    </div>
+
+
+
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label for="name">Full name</label>
+                            <input type="text" id="name"  name="full_name" value ="<%=  fname%>" >
+                        </div>
+
+
+                        <!--get the userid via hidden-->
+                        <input type="hidden" name="userid" value="<%= id%>">
+
+
+                        <div class="form-group" style="display:none">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email"   value ="<%= email%>"   readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone"  name ="phone" placeholder="(91) 456-7890"   value ="<%= mobile%>" >
+                        </div>
+
+                        <div class="form-group" style="display:none;">
+                            <label for="password">Password</label>
+                            <input type="password" id="password"  minlength="6" value=" <%= session.getAttribute("pass")%>" readonly >
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" rows="3" name="bio" ><%= bio%></textarea>
+                        </div>
+
+                        <div class="buttons">
+                            <button class="discard-btn" type="reset">Discard Changes</button>
+                            <button class="save-btn" type="submit"  >Save Changes</button>  
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script>
+//            user form validation
+        function saveForm() {
+            //                const genderEl = document.querySelector('input[name="gender"]:checked');
+            const data = {
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                password: document.getElementById('password').value,
+                specialization: document.getElementById('bio').value.trim(),
+                //                    gender: genderEl ? genderEl.value : ''
+            };
+            if (!data.name || !data.phone) {
+                alert('Please fill out the fields.');
+                return;
+            }
+
+            console.log('Saved Data:', data);
+//                alert('User Profile Updated successfully!');
+        }
+
+
+        function closeProfileModal() {
+            const container = document.querySelector(".container");
+            if (container) {
+                container.style.display = "none";
+                window.location.href = "user_home.jsp";
+
+            }
+        }
+
+        // Or optionally redirect
+//                     window.location.href = "user_home.jsp"; // example
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the file input element
+            const profileImageInput = document.getElementById('profileImage');
+            if (profileImageInput) {
+                // Get the image element
+                const profileImgTag = document.querySelector('#imageUploadForm img');
+                // Remove the onchange attribute from the HTML that submits the form
+                profileImageInput.removeAttribute('onchange');
+                // Add a new event listener
+                profileImageInput.addEventListener('change', function (event) {
+                    const file = event.target.files[0];
+                    if (file && profileImgTag) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            profileImgTag.src = e.target.result;
+                        };
+                        reader.readAsDataURL(file);
+                        // No automatic submission
+                        // The form will only submit when the user explicitly does so
+                    }
+                });
+            }
+        });
+    </script>
+
+
+
+    <script src="<%=request.getContextPath()%>/Js/specialist.js"></script>
+    <%--<script src="<%=request.getContextPath()%>/Js/user.js"></script>--%>
+</body>
+

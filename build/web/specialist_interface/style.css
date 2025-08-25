@@ -1,0 +1,497 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23 Apr, 2025, 12:03:36 PM
+    Author     : rohini
+*/
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+/* Layout */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'poppins',sans-serif;
+}
+
+.main-wrapper {
+    display: flex;
+    flex: 1;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+    height: 60px;
+    background: linear-gradient(to right, #FF7F00, #FF4500);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header-title {
+    font-size: 28px;
+    font-weight: 760;
+    width: 200px;
+}
+
+.search-container {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 16px;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+
+}
+
+.action-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    color: #FF7F00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 270px;
+    background:#ff8000bd;
+    box-shadow:  0px 8px 16px rgba(0, 0, 0, 0.2);
+    color: white;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    z-index: 900;
+    overflow-y: auto;
+}
+
+.sidebar-nav {
+    padding: 20px 0;
+}
+
+.nav-item {
+    margin-bottom: 5px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+}
+
+.nav-link i {
+    margin-right: 15px;
+    font-size: 18px;
+}
+.nav-link span{
+    font-size: 18px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    margin-left: 140px;
+    margin-top: 20px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-left: 200px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Question Filters */
+.question-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    color: #666;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: #FF7F00;
+    color: white;
+}
+
+/* Question List */
+.question-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.question-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+}
+
+.question-category {
+    padding: 5px 10px;
+    border-radius: 15px;
+    background-color: #e6f7ff;
+    color: #0066cc;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.question-status {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+.question-status.pending {
+    background-color: #fff3e0;
+    color: #ff9800;
+}
+
+.question-status.answered {
+    background-color: #e8f5e9;
+    color: #4caf50;
+}
+
+.question-body {
+    padding: 15px;
+}
+
+.question-body h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.question-body p {
+    color: #666;
+}
+
+.question-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border-top: 1px solid #eee;
+    background-color: #f9f9f9;
+}
+
+.question-date {
+    font-size: 12px;
+    color: #888;
+}
+
+.question-action-btn {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Answer List */
+.answer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.answer-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.question-section {
+    border-bottom: 1px solid #eee;
+}
+
+.answer-section {
+    padding: 15px;
+}
+
+.expert-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.expert-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.expert-details h4 {
+    font-weight: 600;
+    color: #333;
+}
+
+.expert-title {
+    font-size: 12px;
+    color: #666;
+}
+
+.answer-content {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.answer-content ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.answer-content li {
+    margin-bottom: 5px;
+}
+
+.answer-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.answer-date {
+    font-size: 12px;
+    color: #888;
+}
+
+.answer-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.answer-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #666;
+    font-size: 14px;
+}
+
+.answer-action-btn:hover {
+    color: #FF7F00;
+}
+/*user dropdown*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#user_drop{
+    margin-left: -100px;
+    margin-top: 0px;
+}
+
+
+.dropdown_content {
+    /* display: none; */
+    position: absolute;
+    /* Fixes right-side extra space issue */
+    top: 45px;
+    /*    left: -30px;*/
+    background-color: white;
+    min-width: 200px;
+    /* Increased width to fit content properly */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0;
+    transition: max-height 0.6s ease-in-out, opacity 0.5s ease-in-out;
+
+}
+
+.dropdown_content.show {
+    /* min-height: 150px; */
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown_content a {
+    display: flex;
+    align-items: center;
+    /* Ensures icons & text align properly */
+    gap: 12px;
+    /* Space between icon and text */
+    padding: 15px 36px;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+/* Icon styling (if using FontAwesome or similar) */
+.dropdown_content a i {
+    font-size: 18px;
+    color: #fd7e14;
+
+}
+
+.dropdown:hover .dropdown_content {
+    display: block;
+}
+
+.dropdown .dropdown_content a:hover {
+    background-color: rgba(102, 99, 99, 0.123);
+}
+
+.dropdown:hover .dropdown_btn {
+    background-color: #b64900;
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header {
+        padding: 0 10px;
+    }
+
+    .header-title {
+        width: auto;
+        font-size: 20px;
+    }
+
+    .search-container {
+        max-width: 200px;
+        margin: 0 10px;
+    }
+
+    .sidebar {
+        width: 0;
+        transition: width 0.3s ease;
+    }
+
+    .sidebar.active {
+        width: 250px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #FF7F00, #FF4500);
+    color: white;
+    font-size: 24px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+}

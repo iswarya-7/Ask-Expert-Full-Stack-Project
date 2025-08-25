@@ -1,0 +1,705 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 8 Apr, 2025, 5:15:40 PM
+    Author     : rohini
+*/
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+/* varible declaration */
+
+/*
+:root{
+    --background: #F8F9FA;
+    --button_color: #fd7e14;
+    --button_text: #fff;
+    --button_textsize: 14px;
+    --primary_color: #fd7e14;
+    --text: #212529;
+    --secondary_color: #b64900;
+    --header: linear-gradient(to right, #FF7F00, #FF4500);
+    --inputbox_shadow: 0 0 5px rgba(253, 126, 20, 0.5);
+     Add a glowing effect 
+}
+*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* home section */
+body {
+    width: 100%;
+    background-color:#F8F9FA;
+    font-family: 'poppins', sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 2px;
+    background: linear-gradient(to right, #FF7F00, #FF4500);
+    font-family: 'poppins', sans-serif;
+    padding: 6px;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    color:#F8F9FA;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    margin-right: 30px;
+    color:#F8F9FA;
+    font-size: 19px;
+      pointer-events: auto !important;
+}
+
+nav a:hover {
+    color: #f8f9fa8b;
+}
+
+.button a {
+    text-decoration: none;
+}
+
+.button .login_button {
+    padding: 5px 15px;
+    border: none;
+    background:#F8F9FA;
+    color: #fd7e14;
+    font-weight: bold;
+    font-size: 17px;
+    align-items: center;
+    border-radius: 4px;
+      pointer-events: auto !important;
+}
+
+
+
+.home {
+    margin: 0% 20% 0% 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 1000px;
+    font-family: 'poppins', sans-serif;
+}
+
+
+.home .home_content {
+    margin-right: 15%;
+    margin-top: -5px;
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Button styling */
+.dropdown_btn {
+    background: #fd7e14;
+    /* Orange */
+    color: white;
+    padding: 5px 14px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+    margin-left: -20px;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown_content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /* Ensures dropdown appears below the button */
+    left: 0;
+    background-color: white;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Dropdown links */
+.dropdown_content a {
+    width: 100%;
+    color: black;
+    padding: 6px 18px;
+    font-size: 18px;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+}
+
+.dropdown_content a:hover {
+    background-color: rgba(102, 99, 99, 0.123);
+    color: #212529;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown_content {
+    display: block;
+}
+
+/* Change button background on hover */
+.dropdown:hover .dropdown_btn {
+    background-color: #b64900;
+    /* Darker orange */
+}
+
+
+
+.title {
+    margin-bottom: 20px;
+    color: #212529;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+.home p {
+    text-align: justify;
+    font-size: 18px
+}
+
+.home img {
+    height: 300px;
+    width: 420px;
+}
+
+.login {
+    padding: 5px 15px;
+    background-color: #fd7e14;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    align-items: center;
+    font-size: 18px
+}
+
+.login:hover {
+    background: linear-gradient(to right, #FF7F00, #FF4500);
+    color: #EFF2F9;
+    font-weight: 500;
+}
+
+/* about section */
+/*.about {
+     margin: 150px 50px 110px; 
+    margin: 0px 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'poppins', sans-serif;
+}*/
+
+h3 {
+    text-align: center;
+
+}
+/*
+.about .top p {
+    text-align: center;
+    font-size: 18px;
+}
+
+.works {
+    margin-top: 8%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.works .vision-left {
+    width: 30%;
+    margin-left: 50px;
+}
+
+.vision-left h4 {
+    margin-bottom: 30px;
+    margin-left: 100px;
+    display: inline-block;
+     border-bottom: 3px solid #fd7e14; 
+}*/
+
+/* border under heading */
+.line::after {
+    content: "";
+    display: block;
+    width: 80px;
+    /* Line width */
+    height: 3px;
+    /* Line thickness */
+    background-color: #fd7e14;
+    margin: 5px auto;
+    /* Centers the line */
+    border-radius: 4px;
+}
+/*
+.p {
+    text-align: justify;
+    font-size: 17px;
+}
+
+.works .works-right {
+    width: 50%;
+    margin-left: -30px;
+}
+
+.works-right h4 {
+    margin-bottom: 30px;
+    margin-left: 120px;
+    display: inline-block;
+}
+
+.step_number {
+    background: #fd7e14;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.works-right .steps {
+    display: flex;
+    margin-left: -100px;
+}
+
+
+.steps .firstr {
+    margin-right: 20px;
+}
+
+.steps p {
+    padding: 25px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 280px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+    font-size: 17px;
+}
+
+.steps p:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease-in-out;
+}*/
+
+/* feature section */
+.feature {
+    margin: 100px 150px 0px 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'poppins', sans-serif;
+}
+
+.feature h3 {
+    display: block;
+    margin-bottom: 20px;
+}
+/*
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+     Responsive grid 
+    gap: 30px;
+    max-width: 1200px;
+}
+
+.feature-card {
+    padding: 20px 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card span {
+    font-size: 30px;
+    display: block;
+    margin-bottom: 10px;
+    color: #fd7e14;
+}
+
+.feature-card h4 {
+    font-size: 20px;
+    color: #fd7e14;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 17px;
+    text-align: justify;
+}*/
+
+/* footer section */
+
+footer {
+    margin-top: 100px;
+    background: linear-gradient(to right, #FF7F00, #FF4500);
+    color: #fff;
+    height: 200px;
+    font-family: 'poppins', sans-serif;
+}
+
+footer .head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+footer h4 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+footer .link {
+    margin-top: 30px;
+    padding-left: 100px;
+}
+
+footer .link h4 {
+    padding-bottom: 5px;
+}
+
+footer .link a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    line-height: 14px;
+    position: relative;
+    left: 5px;
+
+}
+
+footer .link a:hover {
+    color: #ffffffaf;
+}
+
+footer .contact {
+    margin-top: 30px;
+}
+
+footer .contact h4 {
+    padding-bottom: 5px;
+}
+
+footer .contact p {
+    line-height: 14px;
+    font-size: 18px;
+}
+
+
+footer .follow a {
+    position: relative;
+    top: 10px;
+    padding-right: 30px;
+}
+
+footer .follow i {
+    padding: 8px;
+    background: #EFF2F9;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    color: #fd7e14;
+    text-align: center;
+}
+
+/* media queries */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* registration form */
+.register {
+    margin-top: 20px;
+    font-family: 'poppins', sans-serif;
+}
+
+.register form {
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.register .form_data h4 {
+    font-size: 20px;
+    padding-bottom: 30px;
+    color: #fd7e14;
+    font-weight: 600;
+    text-align: center;
+    margin-top: -30px;
+}
+
+#category_area,
+#gender {
+    padding: 10px 0px 10px 10px;
+    width: 320px;
+    margin-bottom: 15px;
+    border: 1px solid #5555554d;
+    border-radius: 4px;
+    color: #555555d8;
+    cursor: pointer;
+}
+
+#photo {
+    /* width: 100%; */
+    color: #555555d8;
+}
+
+#category_area:focus {
+    outline: none;
+    border-color: #fd7e14;
+    color: #212529;
+    box-shadow: 0 0 5px rgba(253, 126, 20, 0.5);
+    /* Add a glowing effect */
+}
+
+#gender:focus {
+    outline: none;
+    border-color: #fd7e14;
+    color: #212529;
+    box-shadow: 0 0 5px rgba(253, 126, 20, 0.5);
+    /* Add a glowing effect */
+}
+
+select option:hover {
+    background: #fd7e14;
+    color: #fff;
+}
+
+input[type="checkbox"] {
+    accent-color: #fd7e14;
+}
+
+.terms span {
+    font-size: 13px;
+    color: #212529;
+    position: relative;
+    top: -3px;
+    left: 5px;
+}
+
+.register form .input input {
+    width: 320px;
+    font-size: 15px;
+}
+
+.register form .input input::placeholder {
+    font-size: 14px;
+}
+
+.register form .input label {
+    font-size: 13px;
+    font-weight: 500;
+    display: block;
+    padding: 4px 0px 4px 3px;
+}
+
+.register form .input .portfolio {
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    padding: 4px 0px 4px 3px;
+}
+
+.register form .input .portfolio::after {
+    content: " ";
+}
+
+.register form .input label::after {
+    content: " * ";
+    color: red;
+    position: relative;
+    top: -3px;
+}
+
+.input textarea {
+    font-family: 'poppins', sans-serif;
+    font-size: 14px;
+    padding: 10px 0px 10px 10px;
+    width: 320px;
+    margin-bottom: 15px;
+    border: 1px solid #5555554d;
+    border-radius: 4px;
+}
+
+.input textarea::placeholder {
+    font-size: 14px;
+}
+
+.register form .input textarea:focus {
+    outline: none;
+    border-color: #fd7e14;
+    color: #212529;
+    box-shadow: 0 0 5px rgba(253, 126, 20, 0.5);
+    /* Add a glowing effect */
+}
+
+.register .login_btn p {
+    text-align: center;
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+.register .login_btn p a {
+    text-decoration: none;
+    color: #212529;
+    color: #fd7e14;
+}
+
+
+select {
+    font-size: 14px;
+}
+
+
+/* login form */
+.form {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'poppins', sans-serif
+}
+
+.form_data {
+    background: #fff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    border-radius: 8px;
+}
+
+.form_data h5 {
+    font-size: 20px;
+    padding-bottom: 30px;
+    color: #fd7e14;
+    font-weight: 600;
+    text-align: center;
+}
+
+.form_data .input input {
+    padding: 12px 0px 12px 10px;
+    width: 260px;
+    margin-bottom: 15px;
+    border: 1px solid #5555554d;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form_data .input label {
+    font-size: 13px;
+    font-weight: 500;
+    display: block;
+    padding: 4px 0px 4px 3px;
+}
+
+.form_data .input label::after {
+    content: " * ";
+    color: red;
+    position: relative;
+    top: -3px;
+}
+
+input::placeholder {
+    font-size: 14px;
+}
+
+.input input:focus {
+    outline: none;
+    border-color: #fd7e14;
+    color: #212529;
+    box-shadow: 0 0 5px rgba(253, 126, 20, 0.5);
+    /* Add a glowing effect */
+}
+
+.input a {
+    text-decoration: none;
+    color: #212529;
+    cursor: pointer;
+}
+
+.input a .forgot {
+    font-size: 14px;
+    padding-left: 135px;
+}
+
+.login_btn button {
+    margin-top: 20px;
+    width: 260px;
+    padding: 10px 0px;
+    border: none;
+    border-radius: 4px;
+    background: #fd7e14;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sign_up {
+    margin: 10px;
+    text-align: center;
+}
+
+.sign_up p {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.sign_up p a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #fd7e14;
+    font-weight: bold;
+}

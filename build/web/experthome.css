@@ -1,0 +1,409 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16 May, 2025, 8:54:52 AM
+    Author     : rohini
+*/
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 26 Apr, 2025, 11:49:01 PM
+    Author     : rohini
+*/
+
+/* Experts showcase section with proper z-index */
+.experts-showcase {
+  width: 100%;
+  max-width: 1200px;
+  padding: 60px 0 40px;
+  position: relative;
+  overflow: hidden;
+  margin: 30px auto;
+  z-index: 1; /* Lower than header */
+}
+
+/* Section title */
+.experts-title {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2; /* Higher than marquee but lower than header */
+}
+
+.experts-title p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #666;
+  font-size: 16px;
+}
+
+/* Marquee container with proper z-index */
+.experts-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1; /* Lower than header */
+}
+
+/* Animation keyframes */
+@keyframes marqueeAnimation {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Scrolling content */
+.experts-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeAnimation 75s linear infinite;
+  padding-left: 0;
+}
+
+/* Expert card styling */
+.expert-card {
+  min-width: 280px;
+  height: 120px;
+  margin: 0 15px;
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid transparent;
+  cursor: pointer;
+  z-index: 2; /* Higher than marquee but lower than header */
+}
+
+.expert-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 4px solid #ff8c00;
+}
+
+/* Expert information */
+.expert-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.expert-domain {
+  font-size: 16px;
+  color: #ff8c00;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.expert-domain span {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(255, 140, 0, 0.1);
+  border-radius: 20px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Container styles for forum */
+.container_ans {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  position: relative;
+  z-index: 1; /* Lower than header */
+}
+
+/* Header styles */
+.heading {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2; /* Higher than cards but lower than header */
+}
+
+.heading h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.heading p {
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Forum container */
+.forum-container {
+  position: relative;
+  z-index: 2; /* Higher than background but lower than header */
+}
+
+/* Forum cards container */
+.forum-cards {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scroll-snap-type: x mandatory;
+  position: relative;
+  z-index: 2; /* Higher than background but lower than header */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.forum-cards::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card styles */
+.card1 {
+  min-width: 350px;
+  max-width: 350px;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  position: relative;
+  z-index: 3; /* Higher than container but lower than header */
+}
+
+.card1:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  padding: 1.25rem 1.25rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.card-header h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: left;
+}
+
+.badge {
+  background-color: #fff5e6;
+  color: #ff8c00;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+  border: 1px solid #ffe0b2;
+}
+
+.card-content {
+  padding: 0.5rem 1.25rem 1.25rem;
+}
+
+/* Expert info styles */
+.expert-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.expert-avatar {
+  background-color: #f3f4f6;
+  border-radius: 9999px;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expert-avatar svg {
+  color: #6b7280;
+}
+
+.expert-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.expert-title {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* Answer styles */
+.answer-container {
+  position: relative;
+}
+
+.answer {
+  font-size: 0.875rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.answer.collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #ff8c00;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.25rem 0;
+  margin-top: 0.5rem;
+}
+
+.read-more-btn:hover {
+  color: #e67e00;
+  text-decoration: underline;
+}
+
+/* Navigation buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 4; /* Higher than cards but lower than header */
+}
+
+.nav-button {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  color: #4b5563;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-button:hover {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .card1 {
+    min-width: 400px;
+    max-width: 400px;
+  }
+
+  .heading h1 {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .experts-showcase {
+    padding: 40px 0 20px;
+    margin: 20px auto;
+  }
+
+  .expert-card {
+    min-width: 220px;
+    height: 100px;
+    padding: 10px;
+  }
+
+  .expert-name {
+    font-size: 16px;
+  }
+
+  .expert-domain span {
+    font-size: 12px;
+    padding: 3px 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .card1 {
+    min-width: 300px;
+    max-width: 300px;
+  }
+
+  .card-header {
+    flex-direction: column;
+  }
+
+  .badge {
+    align-self: flex-start;
+  }
+
+  .expert-card {
+    min-width: 180px;
+    height: 90px;
+    margin: 0 10px;
+  }
+
+  .expert-name {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .expert-card {
+    min-width: 160px;
+    height: 80px;
+    padding: 8px;
+  }
+
+  .expert-name {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .expert-domain span {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+
+  .card1 {
+    min-width: 260px;
+    max-width: 260px;
+  }
+
+  .card-header h3 {
+    font-size: 1rem;
+  }
+}
